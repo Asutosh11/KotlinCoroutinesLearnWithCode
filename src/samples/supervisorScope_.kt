@@ -10,10 +10,12 @@ Child coroutine 2
 ...
 Child coroutine N
 
-By using supervisorScope,
+1. By using supervisorScope,
     supervisorScope creates child CoroutineScope for every child Coroutine it starts
     which inherit parent's coroutineContext,
     but overrides the parent coroutineContext's Job just like coroutineScope.
+
+2. If the parent scope is cancelled, all child scopes also get cancelled.
 
 But assume that "Coroutine i" fails. What do you want to happen with its parent?
 
