@@ -13,7 +13,7 @@ fun main() {
             delay(5000)
             println("finish job")
         }
-        // When .join() is encountered,
+        // When .join() is called for a Job,
         // it suspends/pauses execution of next lines, until the above started job is complete.
         job.join()
         println("After join()")

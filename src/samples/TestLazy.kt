@@ -18,11 +18,6 @@ fun main() {
 
         // now the above Coroutine will start because myName is being used
         println(myName)
-
-        launch (start = CoroutineStart.LAZY){
-            "iron monkey"
-        }
-
     }
 
 

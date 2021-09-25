@@ -37,11 +37,20 @@ suspend fun function2(): String
  * Since function1 is delayed for 1000ms and function2 is delayed 100ms,
  * if these functions were to run in parallel, function2 would output first and then function1
  *
- * But we are using withContext(...), which executes Coroutines one by one,
+ * But we are using withContext(...), which executes
+ * all Coroutines started with withContext one by one.
  * so function2 will execute only when function1 has finished execution
  *
  *   Output:
  *     withContext: function1
  *     withContext: function2
  *
+ * PLEASE NOTE, if there are four coroutines like
+ * task1 = withContext(...)
+ * task2 = withContext(...)
+ * task3 = async(...)
+ * task4 = withContext(...)
+ *
+ * Even if task3 is not withContext, it wil still be executed after task2.
+ * But task4 will not wait for task3 to be over as task3 is not withContext.
  * */

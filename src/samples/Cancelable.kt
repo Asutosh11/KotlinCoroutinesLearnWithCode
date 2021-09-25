@@ -13,15 +13,15 @@ fun main(){
                     print(i)
 
                     /**
-                     * Gives away the thread (or thread pool) of the current coroutine dispatcher to
-                     * other coroutine to run if possible.
+                     * Gives away the thread (or thread pool) of the current coroutine
+                     * dispatcher to other coroutine to run if possible.
                      *
                      * It temporarily deprioritizes the current long running CPU task.
                      *
                      * This suspending function is cancellable.
                      * If the Job of the current coroutine is canceled or completed
-                     * when this suspending function is invoked or while this function is waiting for dispatch,
-                     * it resumes with a CancellationException.
+                     * when this suspending function is invoked or while this function
+                     * is waiting for dispatch, it resumes with a CancellationException.
                      */
                     yield()
                 }
